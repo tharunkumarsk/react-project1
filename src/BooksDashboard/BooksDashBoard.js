@@ -1,5 +1,6 @@
 import React from 'react'
 import BookShelfUnit from './BookShelfUnit'
+import PropTypes from 'prop-types';
 
 
 class BooksDashBoard extends React.Component {
@@ -27,5 +28,9 @@ class BooksDashBoard extends React.Component {
         );
       }
 }
+BooksDashBoard.propTypes = {
+  booksCategory: PropTypes.array,
+  booksList: PropTypes.array
+};
 
 export default BooksDashBoard

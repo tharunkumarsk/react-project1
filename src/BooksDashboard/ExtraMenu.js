@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class ExtraMenu extends Component {
 
@@ -26,5 +27,9 @@ class ExtraMenu extends Component {
     );
   }
 }
+
+ExtraMenu.propTypes = {
+  category: PropTypes.string
+};
 
 export default ExtraMenu;

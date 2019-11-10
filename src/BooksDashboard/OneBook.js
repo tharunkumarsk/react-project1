@@ -1,5 +1,6 @@
 import React from 'react';
 import ExtraMenu from './ExtraMenu';
+import PropTypes from 'prop-types';
 
 const OneBook = ({ book,booksCategory}) => (
   <li>
@@ -26,5 +27,11 @@ const OneBook = ({ book,booksCategory}) => (
     </div>
   </li>
 );
+
+OneBook.propTypes = {
+  book: PropTypes.object,
+  booksCategory: PropTypes.string
+};
+
 
 export default OneBook;
