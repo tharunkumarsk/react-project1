@@ -24,13 +24,29 @@ class BooksApp extends React.Component {
   };
   
   changeBookcategory = (bookToUpdate, newCategory) => { 
-    console.log(bookToUpdate)
-    BooksAPI.update(bookToUpdate, newCategory).catch(err => {
-    console.log(err);
+
+    if (newCategory === 'none') {
+      this.setState(currentState => ({
+        booksList: currentState.booksList.filter(book => book.id !== bookToUpdate.id)
+      }));
+    }
+
+    else {
+      bookToUpdate.shelf = newCategory;
+      const newList = this.state.booksList.filter(book => book.id !== bookToUpdate.id)
+      this.setState(currentState => ({
+         booksList: [...newList,bookToUpdate]
+      }));
+    
+    }
+    this.callUpdateAPI(bookToUpdate,newCategory)
+};
+
+callUpdateAPI = (bookToUpdate,newCategory) =>{
+  BooksAPI.update(bookToUpdate, newCategory).catch(err => {
     this.setState({ error: true });
   });
- 
-};
+}
   
   render() {
     const {booksList,error} = this.state;
