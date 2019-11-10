@@ -3,12 +3,29 @@ import './App.css'
 import { Route } from 'react-router-dom';
 import {booksCategory} from './Constants/AppLevelConstats'
 import BooksDashBoard from './BooksDashboard/BooksDashBoard'
+import * as BooksAPI from './BooksAPI';
 
 class BooksApp extends React.Component {
+
+  state = {
+    booksList: []
+  };
+  
+  componentDidMount = () => {
+    BooksAPI.getAll()
+      .then(books => {
+        this.setState({ booksList: books });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
   
   
   render() {
-    return (
+    const booksList = this.state;
+
+      return (
       <div className="app">
          <Route
           exact
@@ -16,6 +33,7 @@ class BooksApp extends React.Component {
           render={() => (
             <BooksDashBoard
               booksCategory={booksCategory}
+              booksList = {booksList}
             />
           )}
         />
