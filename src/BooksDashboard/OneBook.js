@@ -1,6 +1,7 @@
 import React from 'react';
+import ExtraMenu from './ExtraMenu';
 
-const OneBook = ({ book}) => (
+const OneBook = ({ book,booksCategory}) => (
   <li>
     <div className="book">
       <div className="book-top">
@@ -12,8 +13,11 @@ const OneBook = ({ book}) => (
                 'no_image.jpg'
             })`
           }}
-          
-        />
+          />
+
+        <ExtraMenu book={book} category={booksCategory}/>
+
+
       </div>
       <div className="book-title">{book.title}</div>
       <div className="book-authors">

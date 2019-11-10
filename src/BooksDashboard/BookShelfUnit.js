@@ -15,6 +15,7 @@ const BookshelfUnit = (props) => {
               <OneBook
               key ={oneBook.id}
               book = {oneBook}
+              booksCategory = {booksCategory.key}
               ></OneBook>
           ))}
         </ol>
