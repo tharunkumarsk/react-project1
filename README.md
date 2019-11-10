@@ -15,3 +15,9 @@ npm install
 This automatically opens the below URL with app running
 
 - [http://localhost:3000](http://localhost:3000)
+
+## Feature-1 Listing the books in the Books Dashboard woth category
+
+planned structure 
+
+![Books Dashboard](./images/DashBoardPlan.jpg)
