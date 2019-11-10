@@ -5,6 +5,7 @@ import {booksCategory} from './Constants/AppLevelConstats'
 import BooksDashBoard from './BooksDashboard/BooksDashBoard'
 import * as BooksAPI from './BooksAPI';
 import Error from './Errors/Error'
+import SearchMain from './Search/MainSearch'
 
 class BooksApp extends React.Component {
 
@@ -67,6 +68,13 @@ callUpdateAPI = (bookToUpdate,newCategory) =>{
               booksList = {booksList}
               categoryChange={this.changeBookcategory}
             />
+          )}
+        />
+
+        <Route
+          path="/search"
+          render={() => (
+            <SearchMain/>
           )}
         />
       </div>
