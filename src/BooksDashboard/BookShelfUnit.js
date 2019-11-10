@@ -1,9 +1,8 @@
 import React from 'react';
 
-class BookshelfUnit extends React.Component {
-    render() {
-    console.log(this.props.booksList)
-  const {booksCategory, booksList} = this.props;
+const BookshelfUnit = (props) => {
+    
+  const {booksCategory, booksList} = props;
   const booksOnSpecificCategory = booksList.filter(book => book.shelf === booksCategory.key);
 
   return (
@@ -20,7 +19,7 @@ class BookshelfUnit extends React.Component {
       </div>
     </div>
   );
-   }
-}
+   
+};
 
 export default BookshelfUnit;
