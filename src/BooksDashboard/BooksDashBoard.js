@@ -1,12 +1,13 @@
 import React from 'react'
+import BookShelfUnit from './BookShelfUnit'
 
 
 class BooksDashBoard extends React.Component {
 
     render() {
         const {booksCategory, booksList} = this.props;
-        const booksCategoryArray = Object.keys(booksCategory).map((k) => booksCategory[k])
-        
+        console.log(booksList)
+
         return (
           <div className="list-books">
             <div className="list-books-title">
@@ -14,8 +15,12 @@ class BooksDashBoard extends React.Component {
             </div>
             <div className="list-books-content">
               <div>
-                {booksCategoryArray.map(shelf => (
-                    <h2 className="bookshelf-title" key={shelf.name}>{shelf.name}</h2>
+                {booksCategory.map(category => (
+                   <BookShelfUnit
+                   key ={category.key}
+                   booksCategory = {category}
+                   booksList = {booksList}
+                   ></BookShelfUnit>
                 ))}
               </div>
             </div>
