@@ -4,26 +4,33 @@ import { Route } from 'react-router-dom';
 import {booksCategory} from './Constants/AppLevelConstats'
 import BooksDashBoard from './BooksDashboard/BooksDashBoard'
 import * as BooksAPI from './BooksAPI';
+import Error from './Errors/Error'
 
 class BooksApp extends React.Component {
 
   state = {
-    booksList: []
+    booksList: [],
+    error: false
   };
   
   componentDidMount = () => {
     BooksAPI.getAll()
       .then(books => {
-        this.setState({ booksList: books });
+       this.setState({ booksList: books });
       })
       .catch(err => {
-        console.log(err);
+        this.setState({error:true})
       });
   };
   
   
   render() {
-    const {booksList} = this.state;
+    const {booksList,error} = this.state;
+
+    if (error) {
+     return <Error/>
+    }
+
 
       return (
       <div className="app">

@@ -200,3 +200,8 @@ button:active {
   text-align: center;
   font-size: 0.8em;
 }
+.error {
+  color: red;
+  text-align: center;
+  padding: 10px;
+}
