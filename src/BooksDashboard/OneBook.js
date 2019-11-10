@@ -2,7 +2,7 @@ import React from 'react';
 import ExtraMenu from './ExtraMenu';
 import PropTypes from 'prop-types';
 
-const OneBook = ({ book,booksCategory}) => (
+const OneBook = ({ book,booksCategory,categoryChange}) => (
   <li>
     <div className="book">
       <div className="book-top">
@@ -16,7 +16,7 @@ const OneBook = ({ book,booksCategory}) => (
           }}
           />
 
-        <ExtraMenu book={book} category={booksCategory}/>
+        <ExtraMenu book={book} category={booksCategory} categoryChange={categoryChange}/>
 
 
       </div>
@@ -30,7 +30,8 @@ const OneBook = ({ book,booksCategory}) => (
 
 OneBook.propTypes = {
   book: PropTypes.object,
-  booksCategory: PropTypes.string
+  booksCategory: PropTypes.string,
+  categoryChange:PropTypes.func
 };
 
 

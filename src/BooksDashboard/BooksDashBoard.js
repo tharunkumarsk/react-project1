@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 class BooksDashBoard extends React.Component {
 
     render() {
-        const {booksCategory, booksList} = this.props;
+        const {booksCategory, booksList,categoryChange} = this.props;
 
         return (
           <div className="list-books">
@@ -20,6 +20,7 @@ class BooksDashBoard extends React.Component {
                    key ={category.key}
                    booksCategory = {category}
                    booksList = {booksList}
+                   categoryChange={categoryChange}
                    ></BookShelfUnit>
                 ))}
               </div>
@@ -30,7 +31,8 @@ class BooksDashBoard extends React.Component {
 }
 BooksDashBoard.propTypes = {
   booksCategory: PropTypes.array,
-  booksList: PropTypes.array
+  booksList: PropTypes.array,
+  categoryChange:PropTypes.func
 };
 
 export default BooksDashBoard

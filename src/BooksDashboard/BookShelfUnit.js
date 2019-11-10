@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 const BookshelfUnit = (props) => {
     
-  const {booksCategory, booksList} = props;
+  const {booksCategory, booksList,categoryChange} = props;
   const booksOnSpecificCategory = booksList.filter(book => book.shelf === booksCategory.key);
 
   return (
@@ -17,6 +17,7 @@ const BookshelfUnit = (props) => {
               key ={oneBook.id}
               book = {oneBook}
               booksCategory = {booksCategory.key}
+              categoryChange={categoryChange}
               ></OneBook>
           ))}
         </ol>
@@ -28,7 +29,8 @@ const BookshelfUnit = (props) => {
 
 BookshelfUnit.propTypes = {
   booksCategory: PropTypes.object,
-  booksList: PropTypes.array
+  booksList: PropTypes.array,
+  categoryChange:PropTypes.func
 };
 
 export default BookshelfUnit;

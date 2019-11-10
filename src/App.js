@@ -23,6 +23,14 @@ class BooksApp extends React.Component {
       });
   };
   
+  changeBookcategory = (bookToUpdate, newCategory) => { 
+    console.log(bookToUpdate)
+    BooksAPI.update(bookToUpdate, newCategory).catch(err => {
+    console.log(err);
+    this.setState({ error: true });
+  });
+ 
+};
   
   render() {
     const {booksList,error} = this.state;
@@ -41,6 +49,7 @@ class BooksApp extends React.Component {
             <BooksDashBoard
               booksCategory={booksCategory}
               booksList = {booksList}
+              categoryChange={this.changeBookcategory}
             />
           )}
         />

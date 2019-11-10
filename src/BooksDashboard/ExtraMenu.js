@@ -3,18 +3,26 @@ import PropTypes from 'prop-types';
 
 class ExtraMenu extends Component {
 
+  state = {
+    category: this.props.category
+  };
+
+
   changeCategory = event => {
     const { value } = event.target;
+    this.setState({ value });
+    this.props.categoryChange(this.props.book,value)
     console.log(value)
    
   };
 
   render() {
 
+    const {category} = this.state
+
     return (
-        
       <div className="book-shelf-changer">
-        <select value={this.props.category} onChange={this.changeCategory}>
+        <select value={category} onChange={this.changeCategory}>
           <option value="move" disabled>
             Move to any of below...
           </option>
@@ -29,7 +37,8 @@ class ExtraMenu extends Component {
 }
 
 ExtraMenu.propTypes = {
-  category: PropTypes.string
+  category: PropTypes.string,
+  
 };
 
 export default ExtraMenu;
