@@ -6,7 +6,6 @@ class BooksDashBoard extends React.Component {
 
     render() {
         const {booksCategory, booksList} = this.props;
-        console.log(booksList)
 
         return (
           <div className="list-books">
