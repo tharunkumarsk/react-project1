@@ -21,3 +21,6 @@ This automatically opens the below URL with app running
 planned structure 
 
 ![Books Dashboard](./images/DashBoardPlan.jpg)
+
+![Search components](./images/SearchPlan.jpg)
+
