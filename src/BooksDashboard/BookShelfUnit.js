@@ -1,4 +1,5 @@
 import React from 'react';
+import OneBook from './OneBook'
 
 const BookshelfUnit = (props) => {
     
@@ -9,11 +10,12 @@ const BookshelfUnit = (props) => {
     <div className="bookshelf">
       <h2 className="bookshelf-title">{booksCategory.name}</h2>
       <div className="bookshelf-books">
-        <ol>
+        <ol className="books-grid">
           {booksOnSpecificCategory.map(oneBook => (
-              <li key ={oneBook.id}>
-                <p>{oneBook.title}</p>
-                </li>
+              <OneBook
+              key ={oneBook.id}
+              book = {oneBook}
+              ></OneBook>
           ))}
         </ol>
       </div>
