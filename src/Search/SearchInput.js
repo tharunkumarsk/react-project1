@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import {stringConstants} from '../Constants/AppLevelConstats'
+
 
 class SearchInput extends Component {
     
   state = {
-    searchQuery: '',
+    searchQuery: stringConstants.EMPTY,
   };
 
   inputChange = event => {
@@ -18,9 +20,9 @@ class SearchInput extends Component {
     return (
       <div className="search-books-input-wrapper">
         <input
-          type="text"
+          type={stringConstants.INPUT_TEXT}
           value={this.state.searchQuery}
-          placeholder="Search by title or author"
+          placeholder={stringConstants.SEARCH_PLACE_HOLDER}
           onChange={this.inputChange}
         />
       </div>

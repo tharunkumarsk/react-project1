@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import {stringConstants} from '../Constants/AppLevelConstats'
+
 
 class ExtraMenu extends Component {
 
@@ -22,13 +24,13 @@ class ExtraMenu extends Component {
     return (
       <div className="book-shelf-changer">
         <select value={category} onChange={this.changeCategory}>
-          <option value="move" disabled>
+          <option value={stringConstants.MOVE} disabled>
             Move to any of below...
           </option>
-          <option value="currentlyReading">Currently Reading</option>
-          <option value="wantToRead">Want to Read</option>
-          <option value="read">Read</option>
-          <option value="none">None</option>
+          <option value={stringConstants.CURRENTLY_READING}>Currently Reading</option>
+          <option value={stringConstants.WANT_TO_READ}>Want to Read</option>
+          <option value={stringConstants.READ}>Read</option>
+          <option value={stringConstants.NONE}>None</option>
         </select>
       </div>
     );

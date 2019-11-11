@@ -2,6 +2,7 @@ import React from 'react';
 import OneBook from '../Commons/OneBook';
 import PropTypes from 'prop-types';
 import Error from '../Errors/Error'
+import {stringConstants} from '../Constants/AppLevelConstats'
 
 
 const SearchResults = props => {
@@ -9,7 +10,7 @@ const SearchResults = props => {
   const {bookList,searchResult,searchError,categoryChange} = props;
   if(searchError){
     return <Error
-    text ={"No search result found...!"}
+    text ={stringConstants.NO_SERACH_RESULTS}
     />
   }
   const searchedBooksUpdatedWithCategory = searchResult.map(searchedBook => {
@@ -29,7 +30,7 @@ const SearchResults = props => {
             <OneBook
             key ={oneBook.id}
             book = {oneBook}
-            booksCategory = {oneBook.shelf ? oneBook.shelf : 'none'}
+            booksCategory = {oneBook.shelf ? oneBook.shelf : stringConstants.NONE}
             categoryChange={categoryChange}
             ></OneBook>
           ))}

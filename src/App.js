@@ -1,7 +1,7 @@
 import React from 'react'
 import './App.css'
 import { Route } from 'react-router-dom';
-import {booksCategory} from './Constants/AppLevelConstats'
+import {booksCategory,stringConstants} from './Constants/AppLevelConstats'
 import BooksDashBoard from './BooksDashboard/BooksDashBoard'
 import * as BooksAPI from './BooksAPI';
 import Error from './Errors/Error'
@@ -28,7 +28,7 @@ class BooksApp extends React.Component {
   
   changeBookcategory = (bookToUpdate, newCategory) => { 
 
-    if (newCategory === 'none') {
+    if (newCategory === stringConstants.NONE) {
       this.setState(currentState => ({
         booksList: currentState.booksList.filter(book => book.id !== bookToUpdate.id)
       }));
@@ -114,7 +114,7 @@ handleApiFailure = () => {
 
     if (error) {
      return <Error
-     text ={"Not able to connect to the server ...! Please try again later."}
+     text ={stringConstants.API_ERROR}
      />
     }
 

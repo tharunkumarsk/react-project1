@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Error = ({text}) => (
-<div className='error app'>{text}</div>
+<div className='error'>{text}</div>
 
 );
 
