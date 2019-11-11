@@ -8,17 +8,20 @@ import SearchResults from './SearchResult';
 class SearchMain extends Component {
   
   render() {
-    const {booksList} =this.props
+    const {booksList,searchResult,searchForAbook} =this.props
 
     return (
       <div className="search-books">
         <div className="search-books-bar">
         <BackButton/>
-        <SearchInput/>
+        <SearchInput
+         searchForAbook ={searchForAbook}
+        />
         </div>
 
         <SearchResults
         booksList ={booksList}
+        searchResult ={searchResult}
         />
       </div>
     );
@@ -26,7 +29,9 @@ class SearchMain extends Component {
 }
 
 SearchMain.propTypes = {
-  booksList: PropTypes.array
+  booksList: PropTypes.array,
+  searchResult:PropTypes.array,
+  searchForAbook:PropTypes.func
 };
 
 export default SearchMain;

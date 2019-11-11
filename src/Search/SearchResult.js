@@ -5,13 +5,13 @@ import PropTypes from 'prop-types';
 
 const SearchResults = props => {
 
-  const {booksList} = props;
+  const {booksList,searchResult} = props;
 
 
   return (
     <div className="search-books-results">
       <ol className="books-grid">
-        {booksList.map(oneBook => (
+        {searchResult.map(oneBook => (
           <OneBook
           key ={oneBook.id}
           book = {oneBook}
@@ -23,7 +23,8 @@ const SearchResults = props => {
 };
 
 SearchResults.propTypes = {
-  booksList: PropTypes.array
+  booksList: PropTypes.array,
+  searchResult:PropTypes.array
 };
 
 export default SearchResults;

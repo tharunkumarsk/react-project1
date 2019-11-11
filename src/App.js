@@ -5,13 +5,14 @@ import {booksCategory} from './Constants/AppLevelConstats'
 import BooksDashBoard from './BooksDashboard/BooksDashBoard'
 import * as BooksAPI from './BooksAPI';
 import Error from './Errors/Error'
-import SearchMain from './Search/MainSearch'
+import SearchMain from './Search/SearchMain'
 
 class BooksApp extends React.Component {
 
   state = {
     booksList: [],
-    error: false
+    error: false,
+    searchResult: []
   };
   
   componentDidMount = () => {
@@ -47,10 +48,15 @@ callUpdateAPI = (bookToUpdate,newCategory) =>{
   BooksAPI.update(bookToUpdate, newCategory).catch(err => {
     this.setState({ error: true });
   });
-}
+};
+
+searchForAbook = (queryString) =>{
+  console.log(queryString);
+};
+
   
   render() {
-    const {booksList,error} = this.state;
+    const {booksList,error,searchResult} = this.state;
 
     if (error) {
      return <Error/>
@@ -76,6 +82,8 @@ callUpdateAPI = (bookToUpdate,newCategory) =>{
           render={() => (
             <SearchMain
             booksList = {booksList}
+            searchResult ={searchResult}
+            searchForAbook ={this.searchForAbook}
             />
           )}
         />

@@ -8,10 +8,10 @@ class SearchInput extends Component {
 
   inputChange = event => {
     const value = event.target.value;
-    console.log(value)
     this.setState({
         searchQuery:value
     })
+    this.props.searchForAbook(value)
   };
 
   render() {
