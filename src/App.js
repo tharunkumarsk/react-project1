@@ -56,7 +56,7 @@ searchForAbook = (queryString) =>{
     this.callSearchAPI(queryString)
   }
   else{
-
+  this.resetSearch()
   }
 };
 
@@ -137,6 +137,7 @@ handleApiFailure = () => {
           path="/search"
           render={() => (
             <SearchMain
+            bookList = {booksList}
             searchResult ={searchResult}
             searchForAbook ={this.searchForAbook}
             searchError={searchError}

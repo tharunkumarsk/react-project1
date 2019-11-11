@@ -6,17 +6,26 @@ import Error from '../Errors/Error'
 
 const SearchResults = props => {
 
-  const {searchResult,searchError,categoryChange} = props;
+  const {bookList,searchResult,searchError,categoryChange} = props;
   if(searchError){
     return <Error
     text ={"No search result found...!"}
     />
   }
+  const searchedBooksUpdatedWithCategory = searchResult.map(searchedBook => {
+    bookList.map(mainPageBook => {
+      if (mainPageBook.id === searchedBook.id) {
+        searchedBook.shelf = mainPageBook.shelf;
+      }
+      return mainPageBook;
+    });
+    return searchedBook;
+  });
  
     return (
       <div className="search-books-results">
         <ol className="books-grid">
-          {searchResult.map(oneBook => (
+          {searchedBooksUpdatedWithCategory.map(oneBook => (
             <OneBook
             key ={oneBook.id}
             book = {oneBook}
@@ -33,8 +42,9 @@ const SearchResults = props => {
 };
 
 SearchResults.propTypes = {
+  bookList: PropTypes.array.isRequired,
   searchResult:PropTypes.array,
-  searchError:PropTypes.bool,
+  searchError:PropTypes.bool.isRequired,
   categoryChange:PropTypes.func.isRequired
 
 };
