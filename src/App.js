@@ -12,7 +12,8 @@ class BooksApp extends React.Component {
   state = {
     booksList: [],
     error: false,
-    searchResult: []
+    searchResult: [],
+    searchError:false
   };
   
   componentDidMount = () => {
@@ -21,7 +22,7 @@ class BooksApp extends React.Component {
        this.setState({ booksList: books });
       })
       .catch(err => {
-        this.setState({error:true})
+        this.handleApiFailure()
       });
   };
   
@@ -46,31 +47,67 @@ class BooksApp extends React.Component {
 
 callUpdateAPI = (bookToUpdate,newCategory) =>{
   BooksAPI.update(bookToUpdate, newCategory).catch(err => {
-    this.setState({ error: true });
+    this.handleApiFailure()
   });
 };
 
 searchForAbook = (queryString) =>{
-  console.log(queryString)
+  if(queryString.length > 0){
+    this.callSearchAPI(queryString)
+  }
+  else{
+
+  }
+};
+
+callSearchAPI =(queryString) => {
   BooksAPI.search(queryString)
   .then(books => {
-   this.setState({ searchResult: books });
+   this.handleSearchResponse(books)
   })
   .catch(err => {
-    this.setState(
-      {
-        error:true,
-        searchResult:[]
-      })
+    this.handleApiFailure()
   });
 };
 
+
+handleSearchResponse =(books) => {
+  if (books.error) {
+    this.handleSearchErrorResponse()
+  }
+  else {
+      this.setState({ 
+        searchResult: books,
+        searchError:false
+      });
+    }
+  
+};
+
+handleSearchErrorResponse = () => {
+  this.setState(
+    {
+      searchResult:[],
+      searchError:true
+    });
+};
+
+handleApiFailure = () => {
+  this.setState(
+    {
+      error:true
+    });
+};
+
+
   
   render() {
-    const {booksList,error,searchResult} = this.state;
+    const {booksList,error,searchResult,searchError} = this.state;
 
     if (error) {
-     return <Error/>
+     return <Error
+     text ={"Not able to connect to the server ...! Please try again later."}
+     />
     }
 
 
@@ -95,6 +132,7 @@ searchForAbook = (queryString) =>{
             booksList = {booksList}
             searchResult ={searchResult}
             searchForAbook ={this.searchForAbook}
+            searchError={searchError}
             />
           )}
         />

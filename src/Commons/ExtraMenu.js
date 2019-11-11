@@ -12,7 +12,6 @@ class ExtraMenu extends Component {
     const { value } = event.target;
     this.setState({ value });
     this.props.categoryChange(this.props.book,value)
-    console.log(value)
    
   };
 

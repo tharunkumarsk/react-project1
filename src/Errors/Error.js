@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Error = () => (
-  <div className='error app'>Not able to connect to the server ...! Please try again later.</div>
+const Error = ({text}) => (
+<div className='error app'>{text}</div>
 
 );
 
