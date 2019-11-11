@@ -74,7 +74,9 @@ callUpdateAPI = (bookToUpdate,newCategory) =>{
         <Route
           path="/search"
           render={() => (
-            <SearchMain/>
+            <SearchMain
+            booksList = {booksList}
+            />
           )}
         />
       </div>

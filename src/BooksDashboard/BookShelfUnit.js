@@ -1,5 +1,5 @@
 import React from 'react';
-import OneBook from './OneBook'
+import OneBook from '../Commons/OneBook'
 import PropTypes from 'prop-types';
 
 const BookshelfUnit = (props) => {

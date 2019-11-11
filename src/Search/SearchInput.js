@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 class SearchInput extends Component {
+    
   state = {
     searchQuery: '',
   };
