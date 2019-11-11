@@ -6,7 +6,7 @@ import Error from '../Errors/Error'
 
 const SearchResults = props => {
 
-  const {bookList,searchResult,searchError} = props;
+  const {searchResult,searchError,categoryChange} = props;
   if(searchError){
     return <Error
     text ={"No search result found...!"}
@@ -20,6 +20,8 @@ const SearchResults = props => {
             <OneBook
             key ={oneBook.id}
             book = {oneBook}
+            booksCategory = {oneBook.shelf ? oneBook.shelf : 'none'}
+            categoryChange={categoryChange}
             ></OneBook>
           ))}
         </ol>
@@ -31,9 +33,10 @@ const SearchResults = props => {
 };
 
 SearchResults.propTypes = {
-  booksList: PropTypes.array,
   searchResult:PropTypes.array,
-  searchError:PropTypes.bool
+  searchError:PropTypes.bool,
+  categoryChange:PropTypes.func.isRequired
+
 };
 
 export default SearchResults;

@@ -8,7 +8,7 @@ import SearchResults from './SearchResult';
 class SearchMain extends Component {
   
   render() {
-    const {booksList,searchResult,searchForAbook,searchError,resetSearch} =this.props
+    const {searchResult,searchForAbook,searchError,resetSearch,categoryChange} =this.props
 
     return (
       <div className="search-books">
@@ -24,9 +24,9 @@ class SearchMain extends Component {
         </div>
 
         <SearchResults
-        booksList ={booksList}
         searchResult ={searchResult}
         searchError ={searchError}
+        categoryChange ={categoryChange}
         />
       </div>
     );
@@ -34,11 +34,11 @@ class SearchMain extends Component {
 }
 
 SearchMain.propTypes = {
-  booksList: PropTypes.array.isRequired,
   searchResult:PropTypes.array.isRequired,
   searchForAbook:PropTypes.func.isRequired,
   searchError:PropTypes.bool.isRequired,
-  resetSearch:PropTypes.func.isRequired
+  resetSearch:PropTypes.func.isRequired,
+  categoryChange:PropTypes.func.isRequired
 
 };
 

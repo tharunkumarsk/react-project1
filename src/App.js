@@ -137,11 +137,11 @@ handleApiFailure = () => {
           path="/search"
           render={() => (
             <SearchMain
-            booksList = {booksList}
             searchResult ={searchResult}
             searchForAbook ={this.searchForAbook}
             searchError={searchError}
             resetSearch ={this.resetSearch}
+            categoryChange={this.changeBookcategory}
             />
           )}
         />
