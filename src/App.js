@@ -92,6 +92,14 @@ handleSearchErrorResponse = () => {
     });
 };
 
+resetSearch = () => {
+  this.setState(
+    {
+      searchResult:[],
+      searchError:false
+    });
+};
+
 handleApiFailure = () => {
   this.setState(
     {
@@ -133,6 +141,7 @@ handleApiFailure = () => {
             searchResult ={searchResult}
             searchForAbook ={this.searchForAbook}
             searchError={searchError}
+            resetSearch ={this.resetSearch}
             />
           )}
         />
