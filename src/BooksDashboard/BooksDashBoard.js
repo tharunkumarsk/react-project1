@@ -1,6 +1,7 @@
 import React from 'react'
 import BookShelfUnit from './BookShelfUnit'
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 
 class BooksDashBoard extends React.Component {
@@ -25,6 +26,13 @@ class BooksDashBoard extends React.Component {
                 ))}
               </div>
             </div>
+
+             <div className="open-search">
+                <Link to="search">
+                   <button>Add a Book</button>
+                </Link>
+             </div>
+             
           </div>
         );
       }
