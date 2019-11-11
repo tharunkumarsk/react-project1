@@ -51,7 +51,18 @@ callUpdateAPI = (bookToUpdate,newCategory) =>{
 };
 
 searchForAbook = (queryString) =>{
-  console.log(queryString);
+  console.log(queryString)
+  BooksAPI.search(queryString)
+  .then(books => {
+   this.setState({ searchResult: books });
+  })
+  .catch(err => {
+    this.setState(
+      {
+        error:true,
+        searchResult:[]
+      })
+  });
 };
 
   

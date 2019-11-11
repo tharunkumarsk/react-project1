@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 const SearchResults = props => {
 
   const {booksList,searchResult} = props;
+  console.log(searchResult)
 
 
   return (
