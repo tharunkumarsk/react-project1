@@ -13,7 +13,7 @@ class SearchInput extends Component {
     this.setState({
         searchQuery:value
     })
-    this.props.searchForAbook(value)
+    this.props.searchForAbook(value.trim())
   };
 
   render() {
