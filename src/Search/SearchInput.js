@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import {stringConstants} from '../Constants/AppLevelConstats'
+import {stringConstants} from '../Constants/AppLevelConstats';
+import {DebounceInput} from 'react-debounce-input';
 
 
 class SearchInput extends Component {
@@ -19,10 +20,10 @@ class SearchInput extends Component {
   render() {
     return (
       <div className="search-books-input-wrapper">
-        <input
-          type={stringConstants.INPUT_TEXT}
+        <DebounceInput
           value={this.state.searchQuery}
           placeholder={stringConstants.SEARCH_PLACE_HOLDER}
+          debounceTimeout={500}
           onChange={this.inputChange}
         />
       </div>
